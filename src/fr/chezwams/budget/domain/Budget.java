@@ -10,18 +10,18 @@ public class Budget {
 
 	public Budget() {
 		this.depenses = asList(
-				new Depense(Repositories.forCategory().getSubCategoryByName("Loyer"), new Person("JB"), 900F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 30F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 10F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 28.79F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 45.11F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 57.79F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Electricité"), new Person("Angy"), 80F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Eau"), new Person("Angy"), 21F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Assurance Maison"), new Person("Angy"), 16F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 100F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 75F),
-				new Depense(Repositories.forCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 82.80F)
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Loyer"), new Person("JB"), 900F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 30F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 10F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 28.79F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 45.11F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 57.79F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Electricité"), new Person("Angy"), 80F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Eau"), new Person("Angy"), 21F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Assurance Maison"), new Person("Angy"), 16F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 100F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 75F),
+				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 82.80F)
 		);
 	}
 

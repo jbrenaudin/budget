@@ -2,15 +2,15 @@ package fr.chezwams.budget.domain;
 
 public class Repositories {
 
-	public static BudgetRepository forBudget() {
+	public static BudgetRepository ofBudget() {
 		return new BudgetRepository();
 	}
 
-	public static PersonRepository forPerson() {
+	public static PersonRepository ofPerson() {
 		return new PersonRepository();
 	}
 
-	public static CategoryRepository forCategory() {
+	public static CategoryRepository ofCategory() {
 		return new CategoryRepository();
 	}
 }

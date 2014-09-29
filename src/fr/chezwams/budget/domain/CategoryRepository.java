@@ -15,7 +15,6 @@ public class CategoryRepository {
 					.addSubCategory("Assurance Maison"),
 				new Category("Autre")
 					.addSubCategory("Alimentation")
-					.addSubCategory("Alimentation Chat")
 		);
 	}
 
