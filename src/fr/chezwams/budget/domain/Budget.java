@@ -11,9 +11,9 @@ public class Budget {
 	private List<Depense> depenses;
 	private String month;
 	
-	public Budget(int month) {
+	public Budget(final int month, final int year) {
 		this.revenues = Repositories.ofRevenue().all();
-		this.depenses = Repositories.ofDepense().getByMonth(month); 
+		this.depenses = Repositories.ofDepense().getByMonth(month, year); 
 		this.month = new DateFormatSymbols().getMonths()[month - 1];
 	}
 

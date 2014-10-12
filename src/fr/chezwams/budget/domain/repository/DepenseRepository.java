@@ -30,10 +30,11 @@ public class DepenseRepository {
 		);
 	}
 
-	public List<Depense> getByMonth(final int month) {
+	public List<Depense> getByMonth(final int month, final int year) {
 		List<Depense> depenses = new LinkedList<Depense>();
 		for(Depense depense : all()) {
-			if(depense.created().getMonth() == (month - 1)) {
+			if(depense.created().getYear() == year &&
+			   depense.created().getMonth() == (month - 1)) {
 				depenses.add(depense);
 			}
 		}

@@ -17,9 +17,10 @@ public class BudgetResource extends ServerResource {
 	
 	@Get
 	public Representation getByMonth() throws TemplateModelException {
+		int year = Integer.parseInt((String) getRequest().getAttributes().get("year"));
 		int month = Integer.parseInt((String) getRequest().getAttributes().get("month"));
 		Map<String, Object> root = new HashMap<String, Object>();
-		root.put("budget", new Budget(month));
+		root.put("budget", new Budget(month, year));
 		root.put("categories", Repositories.ofCategory().all());
 		root.put("persons", Repositories.ofPerson().all());
 		return new TemplateRepresentation("budgets/get.ftl", Freemarker.configure(getContext()), root, MediaType.TEXT_HTML);

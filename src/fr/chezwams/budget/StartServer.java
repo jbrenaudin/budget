@@ -19,8 +19,8 @@ public class StartServer extends Application {
 		router.attach("/img", directoryOf("clap://class/fr/chezwams/budget/web/img/"));
 		router.attach("/fonts", directoryOf("clap://class/fr/chezwams/budget/web/fonts/"));
 		router.attach("/js", directoryOf("clap://class/fr/chezwams/budget/web/js/"));
-		router.attach("/budgets/{month}", BudgetResource.class);
-		router.attach("/depenses/{month}", DepenseResource.class);
+		router.attach("/budgets/{year}/{month}", BudgetResource.class);
+		router.attach("/depenses/{year}/{month}", DepenseResource.class);
 		return router;
 	}
 
