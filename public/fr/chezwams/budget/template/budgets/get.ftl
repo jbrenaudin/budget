@@ -22,7 +22,7 @@
 	<tr>
 		<th colspan='2'></th>
 		<#list persons as person>
-			<th class="text-center">${person.name()}</th>
+			<th class="text-center">${person}</th>
 		</#list>
 		<th class="text-center">Total</th>
 	</tr>

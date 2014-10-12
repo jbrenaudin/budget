@@ -2,6 +2,8 @@ package fr.chezwams.budget.domain.repository;
 
 import static java.util.Arrays.asList;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +37,12 @@ public class DepenseRepository {
 				depenses.add(depense);
 			}
 		}
+		Collections.sort(depenses, new Comparator<Depense>() {
+			@Override
+			public int compare(Depense o1, Depense o2) {
+				return o1.created().compareTo(o2.created());
+			}
+		});
 		return depenses;
 	}
 

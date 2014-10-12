@@ -16,4 +16,9 @@ public class Person {
 	public boolean equals(Object obj) {
 		return name.equals(((Person) obj).name);
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }
