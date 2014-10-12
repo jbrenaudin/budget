@@ -1,37 +1,24 @@
 package fr.chezwams.budget.domain;
 
-import static java.util.Arrays.asList;
-
+import java.text.DateFormatSymbols;
 import java.util.List;
+
+import fr.chezwams.budget.domain.repository.Repositories;
 
 public class Budget {
 
 	private List<Revenue> revenues;
 	private List<Depense> depenses;
-
-	public Budget() {
-		this.revenues = asList(
-				new Revenue(new Person("JB"), 2000F),
-				new Revenue(new Person("Angy"), 1900F)
-		);
-		this.depenses = asList(
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Loyer"), new Person("JB"), 900F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 30F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 10F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 28.79F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 45.11F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 57.79F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Electricité"), new Person("Angy"), 80F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Eau"), new Person("Angy"), 21F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Assurance Maison"), new Person("Angy"), 16F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 100F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 75F),
-				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("Angy"), 82.80F)
-		);
+	private String month;
+	
+	public Budget(int month) {
+		this.revenues = Repositories.ofRevenue().all();
+		this.depenses = Repositories.ofDepense().getByMonth(month); 
+		this.month = new DateFormatSymbols().getMonths()[month];
 	}
 
 	public String month() {
-		return "Septembre";
+		return month;
 	}
 
 	private float totalRevenues(Predicate predicate) {

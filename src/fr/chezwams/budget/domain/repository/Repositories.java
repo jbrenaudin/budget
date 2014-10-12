@@ -1,4 +1,4 @@
-package fr.chezwams.budget.domain;
+package fr.chezwams.budget.domain.repository;
 
 public class Repositories {
 
@@ -12,5 +12,13 @@ public class Repositories {
 
 	public static CategoryRepository ofCategory() {
 		return new CategoryRepository();
+	}
+
+	public static RevenueRepository ofRevenue() {
+		return new RevenueRepository();
+	}
+
+	public static DepenseRepository ofDepense() {
+		return new DepenseRepository();
 	}
 }

@@ -1,8 +1,10 @@
-package fr.chezwams.budget.domain;
+package fr.chezwams.budget.domain.repository;
 
 import static java.util.Arrays.asList;
 
 import java.util.List;
+
+import fr.chezwams.budget.domain.Person;
 
 public class PersonRepository {
 

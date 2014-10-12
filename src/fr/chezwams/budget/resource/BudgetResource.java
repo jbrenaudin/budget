@@ -9,7 +9,7 @@ import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
-import fr.chezwams.budget.domain.Repositories;
+import fr.chezwams.budget.domain.repository.Repositories;
 import freemarker.template.TemplateModelException;
 
 public class BudgetResource extends ServerResource {
