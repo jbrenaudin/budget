@@ -21,15 +21,22 @@
 <table class="table">
 	<tr>
 		<th colspan='2'></th>
-		<#list repositories.ofPerson().all() as person>
+		<#list persons as person>
 			<th class="text-center">${person.name()}</th>
 		</#list>
 		<th class="text-center">Total</th>
 	</tr>
-	<#list repositories.ofCategory().all() as category>
-		<tr class="active">
+	<tr class="info">
+		<td colspan='2'>Revenue</td>
+		<#list persons as person>
+			<td class="text-center">${budget.totalRevenues(person)} €</td>
+		</#list>
+		<td class="text-center">${budget.totalRevenues()} €</td>
+	</tr>
+	<#list categories as category>
+		<tr class="warning">
 			<td colspan='2'>${category.name()}</td>
-			<#list repositories.ofPerson().all() as person>
+			<#list persons as person>
 				<td class="text-center">${budget.totalDepenses(category, person)} €</td>
 			</#list>
 			<td class="text-center">${budget.totalDepenses(category)} €</td>
@@ -38,7 +45,7 @@
 			<tr>
 				<td></td>
 				<td>${subCategory.name()}</td>
-				<#list repositories.ofPerson().all() as person>
+				<#list persons as person>
 					<td class="text-center">${budget.totalDepenses(subCategory, person)} €</td>
 				</#list>
 				<td class="text-center">${budget.totalDepenses(subCategory)} €</td>
@@ -46,11 +53,11 @@
 		</#list>
 	</#list>
 	<tr class="danger">
-		<td colspan='2'>Total</td>
-		<#list repositories.ofPerson().all() as person>
-			<td class="text-center">${budget.totalDepenses(person)} €</td>
+		<td colspan='2'>Reste</td>
+		<#list persons as person>
+			<td class="text-center">${budget.totalRevenues(person) - budget.totalDepenses(person)} €</td>
 		</#list>
-		<td class="text-center">${budget.totalDepenses()} €</td>
+		<td class="text-center">${budget.totalRevenues() - budget.totalDepenses()} €</td>
 	</tr>
 </table>
 

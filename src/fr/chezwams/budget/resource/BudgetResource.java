@@ -18,7 +18,8 @@ public class BudgetResource extends ServerResource {
 	public Representation getByToday() throws TemplateModelException {
 		Map<String, Object> root = new HashMap<String, Object>();
 		root.put("budget", Repositories.ofBudget().getByToday());
-		root.put("repositories", Freemarker.staticOf("fr.chezwams.budget.domain.Repositories"));
-		return new TemplateRepresentation("budget.ftl", Freemarker.configure(getContext()), root, MediaType.TEXT_HTML);
+		root.put("categories", Repositories.ofCategory().all());
+		root.put("persons", Repositories.ofPerson().all());
+		return new TemplateRepresentation("budgets/get.ftl", Freemarker.configure(getContext()), root, MediaType.TEXT_HTML);
 	}
 }

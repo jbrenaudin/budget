@@ -6,9 +6,14 @@ import java.util.List;
 
 public class Budget {
 
+	private List<Revenue> revenues;
 	private List<Depense> depenses;
 
 	public Budget() {
+		this.revenues = asList(
+				new Revenue(new Person("JB"), 2000F),
+				new Revenue(new Person("Angy"), 1900F)
+		);
 		this.depenses = asList(
 				new Depense(Repositories.ofCategory().getSubCategoryByName("Loyer"), new Person("JB"), 900F),
 				new Depense(Repositories.ofCategory().getSubCategoryByName("Alimentation"), new Person("JB"), 30F),
@@ -27,6 +32,34 @@ public class Budget {
 
 	public String month() {
 		return "Septembre";
+	}
+
+	private float totalRevenues(Predicate predicate) {
+		float result = 0F;
+		for (Revenue revenue : revenues) {
+			if (predicate.evaluate(revenue)) {
+				result += revenue.montant();
+			}
+		}
+		return result;
+	}
+	
+	public float totalRevenues() {
+		return totalRevenues(new Predicate() {
+			@Override
+			public boolean evaluate(Object obj) {
+				return true;
+			}
+		});
+	}
+	
+	public float totalRevenues(final Person person) {
+		return totalRevenues(new Predicate() {
+			@Override
+			public boolean evaluate(Object obj) {
+				return person.equals(((Revenue) obj).person());
+			}
+		});
 	}
 
 	private float totalDepenses(Predicate predicate) {
