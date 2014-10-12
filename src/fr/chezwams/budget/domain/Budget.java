@@ -14,7 +14,7 @@ public class Budget {
 	public Budget(int month) {
 		this.revenues = Repositories.ofRevenue().all();
 		this.depenses = Repositories.ofDepense().getByMonth(month); 
-		this.month = new DateFormatSymbols().getMonths()[month];
+		this.month = new DateFormatSymbols().getMonths()[month - 1];
 	}
 
 	public String month() {

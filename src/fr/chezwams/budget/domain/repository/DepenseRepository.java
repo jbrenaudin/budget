@@ -28,10 +28,10 @@ public class DepenseRepository {
 		);
 	}
 
-	public List<Depense> getByMonth(int month) {
+	public List<Depense> getByMonth(final int month) {
 		List<Depense> depenses = new LinkedList<Depense>();
 		for(Depense depense : all()) {
-			if(depense.created().getMonth() == month) {
+			if(depense.created().getMonth() == (month - 1)) {
 				depenses.add(depense);
 			}
 		}
