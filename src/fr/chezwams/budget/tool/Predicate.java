@@ -1,4 +1,4 @@
-package fr.chezwams.budget.domain;
+package fr.chezwams.budget.tool;
 
 public interface Predicate {
 

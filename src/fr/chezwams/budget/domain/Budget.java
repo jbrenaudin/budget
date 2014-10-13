@@ -4,6 +4,7 @@ import java.text.DateFormatSymbols;
 import java.util.List;
 
 import fr.chezwams.budget.domain.repository.Repositories;
+import fr.chezwams.budget.tool.Predicate;
 
 public class Budget {
 
